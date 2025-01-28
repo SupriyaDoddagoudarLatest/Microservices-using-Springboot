@@ -27,3 +27,9 @@ spring:
           uri: lb://department-service
           predicates:
             - Path=/department/**
+        - id: salarym-service
+          uri: lb://salarym-service
+          predicates:
+            - Path=/salarym/**
+
+

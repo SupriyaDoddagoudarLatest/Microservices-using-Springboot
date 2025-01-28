@@ -1,10 +1,14 @@
 package com.dailycodebuffer.employeeservice.controller;
 
+
 import com.dailycodebuffer.employeeservice.model.Employee;
 import com.dailycodebuffer.employeeservice.repository.EmployeeRepository;
+import com.dailycodebuffer.employeeservice.service.EmployeeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +21,28 @@ public class EmployeeController {
 
     @Autowired
     EmployeeRepository repository;
+
+    @Autowired
+    EmployeeService employeeService;
+
+    @GetMapping("/{name}/salary")
+    public ResponseEntity<String> getEmployeeSalary(@PathVariable String name) {
+
+        String salaryResponse=employeeService.getSalary(name);
+
+        if(salaryResponse==null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
+        }
+
+        return ResponseEntity.ok(salaryResponse)    ;
+    }
+
+    @GetMapping("/salary")
+    public void getEmployeeSalary() {
+        System.out.println("I have reached here");
+
+    }
 
     @PostMapping
     public Employee add(@RequestBody Employee employee) {
@@ -41,5 +67,12 @@ public class EmployeeController {
         LOGGER.info("Employee find: departmentId={}", departmentId);
         return repository.findByDepartment(departmentId);
     }
+
+   /* @GetMapping("/{employeeId}/salary")
+    public double getSalary(@PathVariable int employeeId) {
+        return employeeService.getEmployeeSalary(employeeId);
+
+    }*/
+
 
 }
