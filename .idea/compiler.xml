@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
         <module name="config-server" />
+        <module name="salarym-service" />
         <module name="department-service" />
         <module name="service-registry" />
         <module name="employee-service" />
@@ -16,10 +17,11 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="api-gateway" options="-parameters" />
+      <module name="api-gateway" options="" />
       <module name="config-server" options="-parameters" />
-      <module name="department-service" options="-parameters" />
-      <module name="employee-service" options="-parameters" />
+      <module name="department-service" options="" />
+      <module name="employee-service" options="" />
+      <module name="salarym-service" options="-parameters" />
       <module name="service-registry" options="-parameters" />
     </option>
   </component>

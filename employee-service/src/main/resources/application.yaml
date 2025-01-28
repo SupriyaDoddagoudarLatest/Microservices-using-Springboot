@@ -6,3 +6,19 @@ spring:
 
 #server:
 #  port: 8085
+
+grpc:
+  client:
+    salarym-service:
+      address: discovery://salarym-service
+    negotiationType: PLAINTEXT
+
+#logging:
+#  level:
+#    org.springframework: DEBUG
+#    com.dailycodebuffer: DEBUG
+
+
+
+
+

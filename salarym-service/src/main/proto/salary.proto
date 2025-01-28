@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package com.dailycodebuffer.salarym_service;
+
+option java_multiple_files = true;
+option java_package = "com.dailycodebuffer";
+option java_outer_classname = "SalaryAbc";
+
+
+service SalaryService {
+
+  rpc getSalary(SalaryRequest) returns (SalaryResponse) {
+  }
+}
+
+
+message SalaryRequest {
+  string name = 1;
+
+}
+
+
+message SalaryResponse {
+  string message = 1;
+
+}
+
+
